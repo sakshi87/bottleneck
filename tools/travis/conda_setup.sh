@@ -4,7 +4,7 @@ set -ev # exit on first error, print commands
 
 CONDA_URL="http://repo.continuum.io/miniconda"
 
-if [ `uname -m` = 'aarch64' ]; then
+if [ `uname -m` == 'aarch64' ]; then
    MINICONDA_DIR="$HOME/archiconda3"
    IS_SUDO="sudo"
 elif [ "${PYTHON_VERSION:0:1}" == "2" ]; then
@@ -17,7 +17,7 @@ if [ "${TRAVIS_OS_NAME}" == "osx" ]; then
 else
     CONDA_OS="Linux"
 fi
-if [ `uname -m` = 'aarch64' ]; then
+if [ `uname -m` == 'aarch64' ]; then
    wget -q "https://github.com/Archiconda/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh" -O archiconda.sh
 elif [ "${PYTHON_ARCH}" == "64" ]; then
     URL="${CONDA_URL}/${CONDA}-latest-${CONDA_OS}-x86_64.sh"
@@ -30,7 +30,7 @@ set +e
 travis_retry wget "${URL}" -O miniconda.sh
 set -e
 
-if [ `uname -m` = 'aarch64' ]; then
+if [ `uname -m` == 'aarch64' ]; then
    chmod +x archiconda.sh
    $IS_SUDO apt-get install python-dev
    $IS_SUDO apt-get install python3-pip
