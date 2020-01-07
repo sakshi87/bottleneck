@@ -32,6 +32,7 @@ if [ `uname -m` == 'aarch64' ]; then
     travis_retry wget "${URL}" -O archiconda.sh
 else
     travis_retry wget "${URL}" -O miniconda.sh
+fi    
 set -e
 
 if [ `uname -m` == 'aarch64' ]; then
@@ -41,6 +42,7 @@ if [ `uname -m` == 'aarch64' ]; then
 else
     chmod +x miniconda.sh
     ./miniconda.sh -b -p "${HOME}/miniconda"
+fi    
     
 export PATH="${HOME}/miniconda/bin:${PATH}"
 hash -r
