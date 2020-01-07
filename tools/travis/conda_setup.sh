@@ -6,8 +6,8 @@ CONDA_URL="http://repo.continuum.io/miniconda"
 ARCHICONDA_URL="https://github.com/Archiconda"
 
 if [ `uname -m` == 'aarch64' ]; then
-   MINICONDA_DIR="$HOME/archiconda3"
-   IS_SUDO="sudo"
+    MINICONDA_DIR="$HOME/archiconda3"
+    IS_SUDO="sudo"
 elif [ "${PYTHON_VERSION:0:1}" == "2" ]; then
     CONDA="Miniconda2"
 else
@@ -19,7 +19,7 @@ else
     CONDA_OS="Linux"
 fi
 if [ `uname -m` == 'aarch64' ]; then
-   URL="${ARCHICONDA_URL}/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh"
+    URL="${ARCHICONDA_URL}/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh"
 elif [ "${PYTHON_ARCH}" == "64" ]; then
     URL="${CONDA_URL}/${CONDA}-latest-${CONDA_OS}-x86_64.sh"
 else
@@ -29,15 +29,15 @@ echo "Downloading '${URL}'..."
 
 set +e
 if [ `uname -m` == 'aarch64' ]; then
-   travis_retry wget "${URL}" -O archiconda.sh
+    travis_retry wget "${URL}" -O archiconda.sh
 else
-   travis_retry wget "${URL}" -O miniconda.sh
+    travis_retry wget "${URL}" -O miniconda.sh
 set -e
 
 if [ `uname -m` == 'aarch64' ]; then
-   chmod +x archiconda.sh
-   bash archiconda.sh -b -p $HOME/miniconda;
-   cp -r $HOME/miniconda/bin/* /usr/bin/;
+    chmod +x archiconda.sh
+    bash archiconda.sh -b -p $HOME/miniconda;
+    cp -r $HOME/miniconda/bin/* /usr/bin/;
 else
     chmod +x miniconda.sh
     ./miniconda.sh -b -p "${HOME}/miniconda"
