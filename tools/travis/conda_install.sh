@@ -18,6 +18,7 @@ if [ `uname -m` == 'aarch64' ]; then
     sudo conda create -q -n "${TEST_NAME}" python="${PYTHON_VERSION}" "${TEST_DEPS[@]}"
 else
    conda create -q -n "${TEST_NAME}" python="${PYTHON_VERSION}" "${TEST_DEPS[@]}"
+fi   
 
 set +v # we dont want to see commands in the conda script
 
