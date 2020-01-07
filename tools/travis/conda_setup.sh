@@ -46,5 +46,10 @@ fi
     
 export PATH="${HOME}/miniconda/bin:${PATH}"
 hash -r
-conda config --set always_yes yes --set changeps1 no
-conda update -q conda
+if [ `uname -m` == 'aarch64' ]; then
+    $IS_SUDO conda config --set always_yes yes --set changeps1 no
+    $IS_SUDO conda update -q conda
+else
+    conda config --set always_yes yes --set changeps1 no
+    conda update -q conda
+fi    
