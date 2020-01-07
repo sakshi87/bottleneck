@@ -38,7 +38,7 @@ set -e
 if [ `uname -m` == 'aarch64' ]; then
     chmod +x archiconda.sh
     bash archiconda.sh -b -p $HOME/miniconda;
-    cp -r $HOME/miniconda/bin/* /usr/bin/;
+    $IS_SUDO cp -r $HOME/miniconda/bin/* /usr/bin/;
 else
     chmod +x miniconda.sh
     ./miniconda.sh -b -p "${HOME}/miniconda"
