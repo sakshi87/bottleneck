@@ -14,7 +14,10 @@ export TEST_NAME
 # split dependencies into separate packages
 IFS=" " TEST_DEPS=(${TEST_DEPS})
 echo "Creating environment '${TEST_NAME}'..."
-conda create -q -n "${TEST_NAME}" python="${PYTHON_VERSION}" "${TEST_DEPS[@]}"
+if [ `uname -m` == 'aarch64' ]; then
+    sudo conda create -q -n "${TEST_NAME}" python="${PYTHON_VERSION}" "${TEST_DEPS[@]}"
+else
+   conda create -q -n "${TEST_NAME}" python="${PYTHON_VERSION}" "${TEST_DEPS[@]}"
 
 set +v # we dont want to see commands in the conda script
 
