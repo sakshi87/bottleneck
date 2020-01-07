@@ -22,10 +22,17 @@ fi
 
 set +v # we dont want to see commands in the conda script
 
-source activate "${TEST_NAME}"
-conda update pip
-conda info -a
-conda list
+if [ `uname -m` == 'aarch64' ]; then
+    sudo source activate "${TEST_NAME}"
+    sudo conda update pip
+    sudo conda info -a
+    sudo conda list
+else
+    source activate "${TEST_NAME}"
+    conda update pip
+    conda info -a
+    conda list
+fi    
 
 if [ -n "${PIP_DEPS}" ]; then
     pip install --upgrade pip
