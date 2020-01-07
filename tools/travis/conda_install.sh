@@ -23,7 +23,7 @@ fi
 set +v # we dont want to see commands in the conda script
 
 if [ `uname -m` == 'aarch64' ]; then
-    sudo source activate "${TEST_NAME}"
+    source activate "${TEST_NAME}"
     sudo conda update pip
     sudo conda info -a
     sudo conda list
