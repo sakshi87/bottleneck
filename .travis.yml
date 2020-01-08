@@ -36,7 +36,7 @@ jobs:
         - os: linux
           arch: arm64
           dist: bionic
-          env: TEST_DEPS="numpy>=1.17.3 pytest hypothesis"
+          env: TEST_DEPS="numpy==1.16.6 pytest hypothesis"
                PYTHON_VERSION="3.7"
                PYTHON_ARCH="64"
 
