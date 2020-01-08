@@ -37,8 +37,11 @@ set -e
 
 if [ `uname -m` == 'aarch64' ]; then
     chmod +x archiconda.sh
-    bash archiconda.sh -b -p $HOME/miniconda;
+    $IS_SUDO apt-get install python-dev
+    $IS_SUDO apt-get install python3-pip
     $IS_SUDO apt-get install python-scipy
+    $IS_SUDO apt-get install lib$ARCHICONDA_PYTHON-dev
+    bash archiconda.sh -b -p $HOME/miniconda;
     $IS_SUDO cp -r $HOME/miniconda/bin/* /usr/bin/;
     $IS_SUDO rm /usr/bin/lsb_release
 else
