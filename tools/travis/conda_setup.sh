@@ -37,6 +37,7 @@ set -e
 
 if [ `uname -m` == 'aarch64' ]; then
     chmod +x archiconda.sh
+    $IS_SUDO pip install numpy
     bash archiconda.sh -b -p $HOME/miniconda;
     $IS_SUDO cp -r $HOME/miniconda/bin/* /usr/bin/;
     $IS_SUDO rm /usr/bin/lsb_release
