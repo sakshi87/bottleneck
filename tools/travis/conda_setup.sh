@@ -37,7 +37,6 @@ set -e
 
 if [ `uname -m` == 'aarch64' ]; then
     chmod +x archiconda.sh
-    $IS_SUDO apt-get install python-dev
     $IS_SUDO apt-get install python3-pip
     $IS_SUDO apt-get install python-scipy
     $IS_SUDO apt-get install lib$ARCHICONDA_PYTHON-dev
