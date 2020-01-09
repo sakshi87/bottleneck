@@ -19,7 +19,7 @@ else
         pip install "${ARCHIVE[0]}"
     elif [ "${TEST_RUN}" != "coverage" ]; then
         # CFLAGS gets ignored by PEP 518, so do coverage from inplace build
-        pip install --user "."
+        pip install "."
     fi
     sudo chmod -R 777 /home/travis/miniconda
     python setup.py build_ext --inplace
