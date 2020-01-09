@@ -65,7 +65,8 @@ install:
     - source "tools/travis/conda_install.sh"
 
 script:
-    - source "tools/travis/bn_setup.sh"
+
+    - sudo source "tools/travis/bn_setup.sh"
 
 notifications:
     email:
