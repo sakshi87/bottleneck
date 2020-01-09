@@ -22,7 +22,7 @@ else
         pip install --user "."
     fi
     sudo chmod -R 777 /home/travis/miniconda
-    python --user setup.py build_ext --inplace
+    python setup.py build_ext --inplace
     if [ "${TEST_RUN}" == "doc" ]; then
         make doc
     elif [ "${TEST_RUN}" == "coverage" ]; then
@@ -33,6 +33,6 @@ else
         bash <(curl -s https://codecov.io/bash)
     else
         # Workaround for https://github.com/travis-ci/travis-ci/issues/6522
-        python --user "tools/test-installed-bottleneck.py"
+        python "tools/test-installed-bottleneck.py"
     fi
 fi
