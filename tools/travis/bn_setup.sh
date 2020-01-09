@@ -14,14 +14,14 @@ if [ "${TEST_RUN}" == "style" ]; then
     black . --check --exclude "(build/|dist/|\.git/|\.mypy_cache/|\.tox/|\.venv/\.asv/|env|\.eggs)"
 else
     if [ "${TEST_RUN}" == "sdist" ]; then
-        python setup.py sdist
+        python setup.py sdist --user
         ARCHIVE=`ls dist/*.tar.gz`
-        pip install "${ARCHIVE[0]}"
+        pip install --user "${ARCHIVE[0]}"
     elif [ "${TEST_RUN}" != "coverage" ]; then
         # CFLAGS gets ignored by PEP 518, so do coverage from inplace build
         pip install --user "."
     fi
-    python setup.py build_ext --inplace
+    python setup.py build_ext --user --inplace
     if [ "${TEST_RUN}" == "doc" ]; then
         make doc
     elif [ "${TEST_RUN}" == "coverage" ]; then
