@@ -32,6 +32,6 @@ else
         bash <(curl -s https://codecov.io/bash)
     else
         # Workaround for https://github.com/travis-ci/travis-ci/issues/6522
-        python "tools/test-installed-bottleneck.py"
+        python --user "tools/test-installed-bottleneck.py"
     fi
 fi
