@@ -21,7 +21,7 @@ else
         # CFLAGS gets ignored by PEP 518, so do coverage from inplace build
         pip install "."
     fi
-    python setup.py build_ext --inplace
+    python --user setup.py build_ext --inplace
     if [ "${TEST_RUN}" == "doc" ]; then
         make doc
     elif [ "${TEST_RUN}" == "coverage" ]; then
