@@ -42,6 +42,7 @@ if [ `uname -m` == 'aarch64' ]; then
     $IS_SUDO pip install numpy
     $IS_SUDO pip install Cython
     bash archiconda.sh -b -p $HOME/miniconda;
+    $IS_SUDO chmod -R 777 /home/travis/.cache/pip
     $IS_SUDO cp -r $HOME/miniconda/bin/* /usr/bin/;
     $IS_SUDO rm /usr/bin/lsb_release
 else
