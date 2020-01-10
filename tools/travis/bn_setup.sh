@@ -16,7 +16,7 @@ if [ "${TEST_RUN}" == "style" ]; then
     black . --check --exclude "(build/|dist/|\.git/|\.mypy_cache/|\.tox/|\.venv/\.asv/|env|\.eggs)"
 else
     if [ "${TEST_RUN}" == "sdist" ]; then
-        python setup.py sdist --user
+        python setup.py sdist 
         ARCHIVE=`ls dist/*.tar.gz`
         pip install --user "${ARCHIVE[0]}"
     elif [ "${TEST_RUN}" != "coverage" ]; then
