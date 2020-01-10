@@ -2,8 +2,6 @@
 
 set -ev # exit on first error, print commands
 
-sudo chmod -R 777 /home/travis/.cache/pip
-
 COVERAGE=""
 if [ "${TEST_RUN}" == "coverage" ]; then
     COVERAGE="--coverage"
