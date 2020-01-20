@@ -15,7 +15,7 @@ export TEST_NAME
 IFS=" " TEST_DEPS=(${TEST_DEPS})
 echo "Creating environment '${TEST_NAME}'..."
 if [ `uname -m` == 'aarch64' ]; then
-    sudo conda create -q -n "${TEST_NAME}" python="${PYTHON_VERSION}" "${TEST_DEPS[@]}" cython=0.29.14
+    sudo conda create -q -n "${TEST_NAME}" python="${PYTHON_VERSION}" "${TEST_DEPS[@]}"
 else
    conda create -q -n "${TEST_NAME}" python="${PYTHON_VERSION}" "${TEST_DEPS[@]}"
 fi   
