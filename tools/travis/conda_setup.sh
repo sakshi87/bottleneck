@@ -40,7 +40,7 @@ if [ `uname -m` == 'aarch64' ]; then
     $IS_SUDO apt-get install python-dev
     $IS_SUDO apt-get install python3-pip
     $IS_SUDO pip install numpy
-    $IS_SUDO pip install --user cython
+    $IS_SUDO python -m pip install --pre --upgrade Cython==0.29.14
     bash archiconda.sh -b -p $HOME/miniconda;
     $IS_SUDO chmod -R 777 /home/travis/.cache/pip
     $IS_SUDO cp -r $HOME/miniconda/bin/* /usr/bin/;
